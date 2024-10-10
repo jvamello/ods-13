@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODS 13 - Ação Contra a Mudança Global do Clima</title>
+    <style>
+        :root {
+            --ods-13-color: #3F7E44;
+            --ods-13-light: #5ea663;
+            --ods-13-dark: #2c5830;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .top-banner {
+            background-color: var(--ods-13-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 20px;
+        }
+
+        .main-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3 {
+            color: var(--ods-13-color);
+            margin-top: 0;
+        }
+
+        #chat-container {
+            height: 400px;
+            border: 1px solid var(--ods-13-color);
+            border-radius: 10px;
+            overflow-y: auto;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+
+        #message-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        #message-input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid var(--ods-13-color);
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: var(--ods-13-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--ods-13-dark);
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background-color: #e8f5e9;
+            margin-left: auto;
+        }
+
+        .assistant-message {
+            background-color: #f0f0f0;
+            margin-right: auto;
+        }
+
+        .facts-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .fact-card {
+            background-color: var(--ods-13-light);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .un-logo {
+            width: 100px;
+            height: auto;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .quick-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links li {
+            margin-bottom: 10px;
+        }
+
+        .quick-links a {
+            color: var(--ods-13-color);
+            text-decoration: none;
+        }
+
+        .quick-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--ods-13-dark);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        <h1>ODS 13 - Ação Contra a Mudança Global do Clima</h1>
+        <p>Tomar medidas urgentes para combater a mudança do clima e seus impactos</p>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div id="chat-container"></div>
+            <form id="message-form">
+                <input type="text" id="message-input" placeholder="Faça uma pergunta sobre a ODS 13..." required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+        <div class="sidebar">
+            <div class="info-card">
+                <h3>Sobre a ODS 13</h3>
+                <p>A ODS 13 foca em ações urgentes para combater as mudanças climáticas e seus impactos. Este objetivo é crucial para o futuro do nosso planeta.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Curiosidades</h3>
+                <div class="facts-slider">
+                    <div class="fact-card">
+                        <p>Os últimos 7 anos foram os mais quentes já registrados na história.</p>
+                    </div>
+                    <div class="fact-card">
+                        <p>O Acordo de Paris visa limitar o aquecimento global a 1.5°C acima dos níveis pré-industriais.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Sobre a ONU</h3>
+                <img src="/api/placeholder/100/100" alt="Logo ONU" class="un-logo">
+                <p>A ONU estabeleceu os 17 Objetivos de Desenvolvimento Sustentável como parte da Agenda 2030.</p>
+                <ul class="quick-links">
+                    <li><a href="#">Agenda 2030</a></li>
+                    <li><a href="#">Relatórios Climáticos</a></li>
+                    <li><a href="#">Ações Globais</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 ODS 13 - Ação Contra a Mudança Global do Clima</p>
+    </footer>
+
+    <script>
+        const API_URL = 'https://alexa-m20y9agv-francecentral.openai.azure.com/openai/deployments/gpt-35-turboGracio/chat/completions?api-version=2023-03-15-preview';
+        const API_KEY = '5f74eb8579e44d3db55d9548a13d7eb1';
+
+        const chatConfig = {
+            "systemPrompt": "Você é um assistente de IA que auxilia sobre a ODS 13: Ação Contra a Mudança Global do Clima",
+            "chatParameters": {
+                "maxResponseLength": 800,
+                "temperature": 0.7,
+                "topProbablities": 0.95,
+                "frequencyPenalty": 0,
+                "presencePenalty": 0
+            }
+        };
+
+        const chatContainer = document.getElementById('chat-container');
+        const messageForm = document.getElementById('message-form');
+        const messageInput = document.getElementById('message-input');
+
+        let conversationHistory = [{
+            role: "system",
+            content: chatConfig.systemPrompt
+        }];
+
+        messageForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const userMessage = messageInput.value.trim();
+            if (!userMessage) return;
+
+            appendMessage('user', userMessage);
+            messageInput.value = '';
+            messageInput.disabled = true;
+
+            conversationHistory.push({
+                role: "user",
+                content: userMessage
+            });
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'api-key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        messages: conversationHistory,
+                        max_tokens: chatConfig.chatParameters.maxResponseLength,
+                        temperature: chatConfig.chatParameters.temperature,
+                        top_p: chatConfig.chatParameters.topProbablities,
+                        frequency_penalty: chatConfig.chatParameters.frequencyPenalty,
+                        presence_penalty: chatConfig.chatParameters.presencePenalty
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const assistantMessage = data.choices[0].message.content;
+
+                appendMessage('assistant', assistantMessage);
+                conversationHistory.push({
+                    role: "assistant",
+                    content: assistantMessage
+                });
+
+            } catch (error) {
+                console.error('Erro:', error);
+                appendMessage('assistant', 'Desculpe, ocorreu um erro ao processar sua mensagem. Por favor, tente novamente.');
+            } finally {
+                messageInput.disabled = false;
+                messageInput.focus();
+            }
+        });
+
+        function appendMessage(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}-message`;
+            messageDiv.textContent = content;
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Mensagem inicial do assistente
+        appendMessage('assistant', 'Olá! Sou seu assistente especializado em questões relacionadas à ODS 13 - Ação Contra a Mudança Global do Clima. Como posso ajudar você hoje?');
+
+        // Rotação automática das curiosidades
+        const facts = document.querySelectorAll('.fact-card');
+        let currentFact = 0;
+
+        function rotateFacts() {
+            facts[currentFact].style.display = 'none';
+            currentFact = (currentFact + 1) % facts.length;
+            facts[currentFact].style.display = 'block';
+        }
+
+        // Inicializa a exibição dos fatos
+        facts.forEach((fact, index) => {
+            if (index !== 0) fact.style.display = 'none';
+        });
+
+        // Roda a cada 5 segundos
+        setInterval(rotateFacts, 5000);
+    </script>
+</body>
+</html>
